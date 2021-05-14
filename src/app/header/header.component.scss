@@ -1,0 +1,18 @@
+nav {
+    background-color: var(--color-three);
+    border:none;
+
+    a{
+        color: var(--color-one);
+    }
+
+    a:hover{
+        color: var(--color-three);
+        background-color: #fff;
+    }
+
+    .active{
+        background-color: #fff;
+        color: var(--color-three);
+    }
+}
