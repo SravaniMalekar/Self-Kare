@@ -5,9 +5,21 @@
   <title>SelfKare</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/c0455e0533.js" crossorigin="anonymous"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <app-root></app-root>
 </body>
+<script>
+  window.onload=function(){
+    const menu = document.querySelector(".navbar-toggle");
+  const menuLinks = document.querySelector(".navbar-collapse");
+  menu.addEventListener("click", function(){
+    menuLinks.classList.toggle("collapse");
+  });
+  console.log("hello")
+}
+  
+</script>
 </html>

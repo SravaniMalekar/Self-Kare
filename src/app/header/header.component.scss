@@ -1,18 +1,88 @@
-nav {
-    background-color: var(--color-three);
-    border:none;
+#logo {
+  width: 150px;
+  padding: 0 7px;
+}
 
-    a{
-        color: var(--color-one);
-    }
+// Navbar
+.navbar {
+  background: var(--fg-color);
+  border-radius: 0;
 
-    a:hover{
-        color: var(--color-three);
-        background-color: #fff;
-    }
+  .nav li > a {
+    height: 8.8vh;
+    width: auto;
+    font-size: 18px;
+    transition: 0.2s ease-in-out;
+    color: #fff;
 
-    .active{
-        background-color: #fff;
-        color: var(--color-three);
+    &:hover,
+    &.active {
+      background-color: var(--bg-color);
+      color: var(--accent-color);
+      font-size: 14px;
+      height: 8.8vh;
+      .link {
+        width: 100%;
+        padding: 0 5px;
+        visibility: visible;
+        font-size: 17px;
+      }
     }
+  }
+  .link {
+    width: 0;
+    font-family: "Roboto", sans-serif;
+    transition: 0.2s ease-in-out;
+    visibility: hidden;
+    font-size: 0px;
+  }
+
+  .navbar-toggle {
+    padding-right: 0;
+    .icon-bar {
+      background: white;
+    }
+  }
+  .navbar-collapse {
+    display: block;
+  }
+  .collapse {
+    display: none;
+  }
+
+  button {
+    background: transparent;
+  }
+}
+
+// Small Devices
+@media (max-width: 769px) {
+  #logo {
+    margin-top: -8px;
+  }
+  .navbar {
+    .navbar-header {
+      padding: 5px;
+    }
+    .link {
+      padding-left: 10px;
+      visibility: visible;
+      width: 100%;
+      font-size: 14px;
+      margin-left: 15px;
+    }
+    .navbar-brand {
+      .link {
+        visibility: hidden;
+      }
+    }
+  }
+  .nav li > a {
+    height: 60px;
+    &:hover,
+    &.active {
+      background: var(--bg-color);
+      font-size: 17px;
+    }
+  }
 }
