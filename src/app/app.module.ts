@@ -7,6 +7,12 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
 import { SelfAnalyseComponent } from './self-analyse/self-analyse.component';
 import { TweetsComponent } from './tweets/tweets.component';
 import { HeaderComponent } from './header/header.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import { AuthComponent } from './auth/auth.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +20,17 @@ import { HeaderComponent } from './header/header.component';
     MainDashboardComponent,
     SelfAnalyseComponent,
     TweetsComponent,
-    HeaderComponent
+    HeaderComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

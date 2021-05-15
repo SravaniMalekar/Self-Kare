@@ -1,4 +1,4 @@
-  <nav class="navbar">
+  <nav class="navbar" *ngIf = "authService.isLoggedIn">
     <div class="container-fluid">
       <!-- Nav Header -->
       <div class="navbar-header">
@@ -21,6 +21,7 @@
          <li><a routerLinkActive="active" [routerLink] = "['/self-analyse']"><span class="fas fa-2x fa-vial"></span><span class="link">Page 2</span></a></li>
           <!-- Page 3 -->
          <li><a routerLinkActive="active" [routerLink] = "['/tweets']"><span class="fas fa-2x fa-info-circle"></span><span class="link">Page 3</span></a></li>
+         <li><a type="button" (click)="signOut()">Logout</a></li>
         </ul>
       </div>
     </div>
