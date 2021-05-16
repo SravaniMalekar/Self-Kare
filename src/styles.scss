@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 :root {
   --bg-color: #121017;
   --fg-color: #1a1924;
@@ -9,4 +10,5 @@
 body {
   background: var(--bg-color);
   color: #fff;
+  font-family: "Oswald", sans-serif;
 }
