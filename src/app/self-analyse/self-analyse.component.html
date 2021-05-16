@@ -1,1 +1,17 @@
-<p>self-analyse works!</p>
+<button class="btn btn-default tab" (click)="triggerModal(modalData)">Selg-Analyse to get Health Report</button>
+
+<ng-template #modalData let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+      Answer the following questions...</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit amet magni suscipit, minima libero corporis veniam quibusdam tempora dolorum fugit, doloribus esse laboriosam rem temporibus nam enim autem pariatur ex?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+    </div>
+  </ng-template>

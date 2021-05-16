@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-self-analyse',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelfAnalyseComponent implements OnInit {
 
-  constructor() { }
+  closeModal!: string;
+  
+  constructor(private modalService:NgbModal) { }
 
   ngOnInit(): void {
   }
 
+  triggerModal(content: any) {
+    this.modalService.open(content, {size: "dailog-centered"});
+  }
+  
+  private getDismissReason(reason: any) {
+    console.log(reason);
+  }
 }

@@ -32,7 +32,7 @@ export class AuthService {
     return this.afAuth.createUserWithEmailAndPassword(email,password).then((result)=>{
       console.log("sucess",result);
       this.SetUserData(result.user);
-      setInterval(()=>this.router.navigateByUrl('/main-dashboard'),100);
+      setTimeout(()=>this.router.navigateByUrl('/main-dashboard'),20);
     }).catch((error)=>{
       window.alert(error.message)
     })
@@ -45,7 +45,7 @@ export class AuthService {
     .then((result)=>{
       this.SetUserData(result.user);
       console.log('Logged In');
-      setInterval(()=>this.router.navigateByUrl('/main-dashboard'),100);
+      setTimeout(()=>this.router.navigateByUrl('/main-dashboard'),20);
       
     }).catch((error)=>{
       window.alert(error.message)
