@@ -13,6 +13,7 @@ export class AuthService {
 
   userData :any;
 
+
   constructor(public afs: AngularFirestore,public afAuth: AngularFireAuth,public router: Router){
     this.afAuth.authState.subscribe(user => {
       if(user){
@@ -31,7 +32,7 @@ export class AuthService {
     return this.afAuth.createUserWithEmailAndPassword(email,password).then((result)=>{
       console.log("sucess",result);
       this.SetUserData(result.user);
-      this.router.navigateByUrl('/main-dashboard')
+      setInterval(()=>this.router.navigateByUrl('/main-dashboard'),100);
     }).catch((error)=>{
       window.alert(error.message)
     })
@@ -42,9 +43,10 @@ export class AuthService {
 
     return this.afAuth.signInWithEmailAndPassword(email,password)
     .then((result)=>{
-      console.log('Logged In');
-      this.router.navigateByUrl('/main-dashboard');
       this.SetUserData(result.user);
+      console.log('Logged In');
+      setInterval(()=>this.router.navigateByUrl('/main-dashboard'),100);
+      
     }).catch((error)=>{
       window.alert(error.message)
     })
@@ -85,7 +87,7 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
   const user = localStorage.getItem('user');
-  return (user !== null ? true : false);
+  return (user !== '' ? true : false);
 }
 
 }
