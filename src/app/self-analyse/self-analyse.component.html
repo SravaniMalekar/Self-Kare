@@ -10,17 +10,54 @@
 </div>
 
 <ng-template #modalData let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">
-      Answer the following questions...</h4>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Analyse yourself by answering these questions</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">×</span>
       </button>
+  </div>
+  <form #f="ngForm" (ngSubmit)="submitForm(f)">
+    <div class="form-groups">
+      <div class="modal-body">
+        <div class="form-group">
+          <fieldset>
+            <p>Which of the following symptoms have you experienced?</p>
+            <div class="params" *ngFor="let symptom of symptoms, let i=index">
+              <label for={{symptom}}>{{symptom}}</label>
+              <input type="checkbox" class="radio" id={{symptom}} name="{{symptom}}" value={{symptom}}
+              ngModel>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <fieldset>
+            <p>What age group do you lie in?</p>
+            <div class="params" *ngFor="let ag of age, let i=index">
+              <label for={{ag}}>{{ag}}</label>
+              <input type="radio" id={{ag}} name="age" value={{ag}}
+              ngModel
+              >
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <fieldset>
+            <p>Have you recently been in contact with a covid positive person?</p>
+            <div class="params" *ngFor="let con of contact, let i=index">
+              <label for={{con}}>{{con}}</label>
+              <input type="radio" id={{con}} name="contact" value={{con}}
+              ngModel>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid" >Submit</button>
+      
+      </div>
+
     </div>
-    <div class="modal-body">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit amet magni suscipit, minima libero corporis veniam quibusdam tempora dolorum fugit, doloribus esse laboriosam rem temporibus nam enim autem pariatur ex?</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn" (click)="modal.close('Save click')">Submit</button>
-    </div>
-  </ng-template>
+  </form>
+
+</ng-template>

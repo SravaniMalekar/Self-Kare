@@ -19,7 +19,7 @@
         name="password"
         required>
       </div>
-      <button type="submit" class="btn btn-primary">{{isLoginMode ? "Login" : "SignUp"}}</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!f.valid" >{{isLoginMode ? "Login" : "SignUp"}}</button>
       <hr>
       <a type="button" style="color: var(--accent-color);" (click)="onSwitchMode()">{{isLoginMode ? "Don't have an account? SignUp" : "Already a member? Login"}}</a>
     </div>
