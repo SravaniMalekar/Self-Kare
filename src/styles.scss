@@ -4,7 +4,7 @@
   --bg-color: #121017;
   --fg-color: #1a1924;
   --accent-color: #00ffff;
-  --color-four: #276678;
+  --b-rad: 20px;
 }
 
 body {
@@ -17,12 +17,8 @@ html,
 body {
   height: 100%;
 }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
 .modal-open .modal {
   padding: 50px !important;
-  top: 20% !important;
+  top: 30% !important;
 }

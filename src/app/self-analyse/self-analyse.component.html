@@ -1,4 +1,13 @@
-<button class="btn btn-default tab" (click)="triggerModal(modalData)">Selg-Analyse to get Health Report</button>
+<div class="container">
+  <div class="tab">
+    <div class="statusimg">
+      <img src="../../assets/normal.png">
+      <p class="status">Normal</p>
+    </div>
+    <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci obcaecati sequi dolor dolorem, quae cum? Nesciunt repudiandae ipsum delectus incidunt ad at, eos doloribus? Officia dolor praesentium provident quae?</p>
+    <button class="btn btn-default" (click)="triggerModal(modalData)">Analyse Yourself</button>
+  </div>
+</div>
 
 <ng-template #modalData let-modal>
     <div class="modal-header">
@@ -12,6 +21,6 @@
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit amet magni suscipit, minima libero corporis veniam quibusdam tempora dolorum fugit, doloribus esse laboriosam rem temporibus nam enim autem pariatur ex?</p>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+      <button type="button" class="btn" (click)="modal.close('Save click')">Submit</button>
     </div>
   </ng-template>
