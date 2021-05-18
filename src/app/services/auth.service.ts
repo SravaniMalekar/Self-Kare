@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {User} from "../services/user"
+import {Data, User} from "../services/user"
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -89,5 +89,14 @@ export class AuthService {
   const user = localStorage.getItem('user');
   return (user !== '' ? true : false);
 }
-
+  addDocToCollection(data: Data){
+    const id = this.afs.createId();
+    const dataDoc = this.afs.doc(`users/${this.userData.uid}`);
+    const dataS = {...data,id:id};
+    return dataDoc.collection('Userlogs').doc(id).set(dataS,{merge:true}).then((res)=>{
+      console.log(res);
+    }).catch((error)=>{
+      console.log(error);
+    })
+  }
 }

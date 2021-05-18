@@ -35,9 +35,6 @@ export class SelfAnalyseComponent implements OnInit {
     this.modalService.dismissAll();
     console.log(form.value);
     this.result = form.value;
-    // if(this.result[this.symptoms[0]] == true){
-    //   console.log('1');
-    // }
     this.resolve();
     
   }

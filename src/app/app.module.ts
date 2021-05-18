@@ -15,6 +15,7 @@ import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalFormComponent } from './main-dashboard/modal-form/modal-form.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TweetsComponent,
     HeaderComponent,
     AuthComponent,
+    ModalFormComponent,
   ],
   imports: [
     BrowserModule,
