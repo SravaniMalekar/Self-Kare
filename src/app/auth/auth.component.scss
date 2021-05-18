@@ -29,9 +29,13 @@
       font-size: 25px;
       text-transform: uppercase;
       background-color: var(--accent-color);
-      transition: opacity 150ms ease-in;
+
+      color: black;
+      border: var(--accent-color) 2px solid;
+      transition: all 200ms ease-in;
       &:hover {
-        opacity: 0.8;
+        background-color: transparent;
+        color: var(--accent-color);
       }
     }
   }

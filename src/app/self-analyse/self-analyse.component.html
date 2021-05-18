@@ -1,8 +1,11 @@
 <div class="container">
   <div class="tab">
-    <div class="statusimg">
-      <img src="../../assets/normal.png">
-      <p class="status">Normal</p>
+    <div class="status">
+      <span class="status-img">
+
+        <img src="../../assets/normal.png">
+      </span>
+      <p class="status-text">Normal</p>
     </div>
     <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci obcaecati sequi dolor dolorem, quae cum? Nesciunt repudiandae ipsum delectus incidunt ad at, eos doloribus? Officia dolor praesentium provident quae?</p>
     <button class="btn btn-default" (click)="triggerModal(modalData)">Analyse Yourself</button>
@@ -24,9 +27,9 @@
           <fieldset>
             <p>Which of the following symptoms have you experienced?</p>
             <div class="params" *ngFor="let symptom of symptoms, let i=index">
-              <label for={{symptom}}>{{symptom}}</label>
-              <input type="checkbox" class="radio" id={{symptom}} name="{{symptom}}" value={{symptom}}
-              ngModel>
+              <label for={{symptom}}>
+              <input type="checkbox" id={{symptom}} name="{{symptom}}" value={{symptom}}
+              ngModel><span>{{symptom}}</span></label>
             </div>
           </fieldset>
         </div>
@@ -34,10 +37,10 @@
           <fieldset>
             <p>What age group do you lie in?</p>
             <div class="params" *ngFor="let ag of age, let i=index">
-              <label for={{ag}}>{{ag}}</label>
+              <label for={{ag}}>
               <input type="radio" id={{ag}} name="age" value={{ag}}
               ngModel
-              >
+              ><span>{{ag}}</span></label>
             </div>
           </fieldset>
         </div>
@@ -45,9 +48,9 @@
           <fieldset>
             <p>Have you recently been in contact with a covid positive person?</p>
             <div class="params" *ngFor="let con of contact, let i=index">
-              <label for={{con}}>{{con}}</label>
+              <label for={{con}}>
               <input type="radio" id={{con}} name="contact" value={{con}}
-              ngModel>
+              ngModel><span>{{con}}</span></label>
             </div>
           </fieldset>
         </div>
