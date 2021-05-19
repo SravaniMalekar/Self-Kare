@@ -7,5 +7,6 @@ export interface User {
 export interface Data{
     id?: string;
     value: string;
-    property: string;    
+    property: string;
+    date: string;    
 }
