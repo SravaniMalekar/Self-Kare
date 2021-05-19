@@ -103,13 +103,11 @@ export class AuthService {
 
   //get user data from firestore collection
   async getDocumentsCollection(){
-    let userlogData: Array<any> = []
+    let userlogData: Array<any> = [];
     const docRef = this.afs.collection(`users/${this.userData.uid}/Userlogs`);
     let snapshot = await docRef.get();
     snapshot.forEach(doc => {
-      doc.forEach(data=> {
-        userlogData.push(data.data());
-      });
+      doc.forEach(data=> userlogData.push(data.data()));
     });
     return userlogData;
     }

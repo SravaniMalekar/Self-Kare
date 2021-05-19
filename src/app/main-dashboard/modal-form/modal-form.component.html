@@ -25,3 +25,13 @@
         </div>
     </form>
 </ng-template>
+
+<apx-chart 
+    [series]= "chartOptions.series"
+    [chart]= "chartOptions.chart"
+    [xaxis]="chartOptions.xaxis"
+    [title]="chartOptions.title"
+    [stroke]="chartOptions.stroke"
+    [fill]="chartOptions.fill"
+    [yaxis]="chartOptions.yaxis"
+    [markers]="chartOptions.markers"></apx-chart>
