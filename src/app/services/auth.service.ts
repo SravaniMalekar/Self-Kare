@@ -4,8 +4,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -77,6 +75,7 @@ export class AuthService {
     })
   }
 
+  //Signout
   SignOut(){
     return this.afAuth.signOut().then(()=>{
       localStorage.removeItem('user');
@@ -89,6 +88,8 @@ export class AuthService {
   const user = localStorage.getItem('user');
   return (user !== '' ? true : false);
 }
+
+  //adding doc to userlog collection
   addDocToCollection(data: Data){
     const id = this.afs.createId();
     const dataDoc = this.afs.doc(`users/${this.userData.uid}`);
@@ -99,4 +100,16 @@ export class AuthService {
       console.log(error);
     })
   }
+
+  //get user data from firestore collection
+  async getDocumentsCollection(){
+    let userlogData: Array<any> = [];
+    const docRef = this.afs.collection(`users/${this.userData.uid}/Userlogs`);
+    let snapshot = await docRef.get();
+    snapshot.forEach(doc => {
+      doc.forEach(data=> userlogData.push(data.data()));
+    });
+    return userlogData;
+    }
 }
+
