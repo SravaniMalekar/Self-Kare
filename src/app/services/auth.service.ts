@@ -14,12 +14,13 @@ export class AuthService {
 
   constructor(public afs: AngularFirestore,public afAuth: AngularFireAuth,public router: Router){
     this.afAuth.authState.subscribe(user => {
-      if(user){
+      if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
+        localStorage.setItem('uid', JSON.stringify(user.uid));
 
-      }else{
-        localStorage.setItem('user','');
+      } else {
+        localStorage.setItem('user', '');
       }
     })
   }
@@ -89,27 +90,5 @@ export class AuthService {
   return (user !== '' ? true : false);
 }
 
-  //adding doc to userlog collection
-  addDocToCollection(data: Data){
-    const id = this.afs.createId();
-    const dataDoc = this.afs.doc(`users/${this.userData.uid}`);
-    const dataS = {...data,id:id};
-    return dataDoc.collection('Userlogs').doc(id).set(dataS,{merge:true}).then((res)=>{
-      console.log(res);
-    }).catch((error)=>{
-      console.log(error);
-    })
-  }
-
-  //get user data from firestore collection
-  async getDocumentsCollection(){
-    let userlogData: Array<any> = [];
-    const docRef = this.afs.collection(`users/${this.userData.uid}/Userlogs`);
-    let snapshot = await docRef.get();
-    snapshot.forEach(doc => {
-      doc.forEach(data=> userlogData.push(data.data()));
-    });
-    return userlogData;
-    }
 }
 

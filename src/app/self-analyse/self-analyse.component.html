@@ -81,32 +81,11 @@
       <div class="modal-body">
         <div class="form-group">
           <fieldset>
-            <p>Which of the following symptoms have you experienced?</p>
+            <p> Select the following which you are experiencing?</p>
             <div class="params" *ngFor="let symptom of symptoms, let i=index">
               <label for={{symptom}}>
               <input type="checkbox" id={{symptom}} name="{{symptom}}" value={{symptom}}
               ngModel><span>{{symptom}}</span></label>
-            </div>
-          </fieldset>
-        </div>
-        <div class="form-group">
-          <fieldset>
-            <p>What age group do you lie in?</p>
-            <div class="params" *ngFor="let ag of age, let i=index">
-              <label for={{ag}}>
-              <input type="radio" id={{ag}} name="age" value={{ag}}
-              ngModel
-              ><span>{{ag}}</span></label>
-            </div>
-          </fieldset>
-        </div>
-        <div class="form-group">
-          <fieldset>
-            <p>Have you recently been in contact with a covid positive person?</p>
-            <div class="params" *ngFor="let con of contact, let i=index">
-              <label for={{con}}>
-              <input type="radio" id={{con}} name="contact" value={{con}}
-              ngModel><span>{{con}}</span></label>
             </div>
           </fieldset>
         </div>

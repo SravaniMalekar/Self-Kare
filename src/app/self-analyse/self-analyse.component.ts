@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FetchService } from '../services/fetch.service';
 
 @Component({
   selector: 'app-self-analyse',
@@ -10,15 +11,13 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class SelfAnalyseComponent implements OnInit {
 
   res: any =[];
-  symptoms =['Fever', 'Tiredness', 'Dry-Cough','Difficulty-in-Breathing', 'Sore-Throat', 'Body-Pains','Nasal-Congestion' ,'Runny-Nose', 'Diarrhea', 'None'];
+  symptoms =['Dry-Cough','Sore-Throat','Weakness','Difficulty-in-Breathing','Drowsiness','Chest-Pain','Travelled to infected countries','Diabetes','Heart-Disease','Lung Disease','Stroke','Have your symptoms progressed?','High Blood Pressure','Kidney-Disease','Change in apetite','Loss of sense of smell'];
 
-  age=['0-9','10-19','20-24','25-29','60+'];
-
-  contact=['Yes','No','Dont-know'];
   result:any;
 
   constructor(private modalService:NgbModal,
-    public activeModal: NgbActiveModal) { }
+    public activeModal: NgbActiveModal,
+    private postService: FetchService) { }
 
   ngOnInit(): void {
   }
@@ -41,6 +40,7 @@ export class SelfAnalyseComponent implements OnInit {
 
 
   resolve(){
+    this.res =[];
     for(let i=0; i< this.symptoms.length ; i++){
       if(this.result[this.symptoms[i]] == true){
         this.res.push(1);
@@ -49,24 +49,9 @@ export class SelfAnalyseComponent implements OnInit {
       }
     }
 
-    for(let j=0;j< this.age.length; j++){
-      if(this.result['age']== this.age[j]){
-        this.res.push(1);
-      }else{
-        this.res.push(0);
-      }
-    }
-
-    for(let k=0;k< this.contact.length; k++){
-      if(this.result['contact']== this.contact[k]){
-        this.res.push(1);
-      }else{
-        this.res.push(0);
-      }
-    }
-
     this.res = [this.res];
     console.log(this.res);
+    this.postService.fetchPosts(this.res);
   }
 }
 
