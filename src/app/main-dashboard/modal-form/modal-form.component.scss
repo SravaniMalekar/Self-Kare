@@ -1,3 +1,70 @@
-.modal-body{
-    color:black;
+.modal-header,
+.modal-body,
+.modal-footer {
+  background-color: var(--fg-color);
+  color: #fff;
+}
+
+.modal-header {
+  border-radius: 5px 5px 0 0;
+  border-top: 2px solid var(--accent-color);
+  border-left: 2px solid var(--accent-color);
+  border-right: 2px solid var(--accent-color);
+  button {
+    color: #fff;
+  }
+}
+
+.modal-body {
+  border-left: 2px solid var(--accent-color);
+  border-right: 2px solid var(--accent-color);
+
+  label {
+    font-size: 16px;
+    margin: 7px;
+  }
+  input {
+    background-color: rgba(238, 238, 238, 0.932);
+  }
+}
+
+.modal-footer {
+  border-radius: 0 0 5px 5px;
+  border-bottom: 2px solid var(--accent-color);
+  border-left: 2px solid var(--accent-color);
+  border-right: 2px solid var(--accent-color);
+  button {
+    background-color: var(--accent-color);
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: black;
+    border: var(--accent-color) 2px solid;
+    transition: all 200ms ease-in;
+    &:hover {
+      background-color: transparent;
+      color: var(--accent-color);
+    }
+  }
+}
+
+.grph-btn {
+  margin-left: 27px;
+  background-color: var(--accent-color);
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: black;
+  border: var(--accent-color) 2px solid;
+  transition: all 200ms ease-in;
+  &:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+  }
+}
+.graph {
+  border-radius: var(--b-rad);
+  margin-bottom: 20px;
+  padding: 30px;
+  background-color: var(--fg-color);
 }
