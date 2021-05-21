@@ -138,11 +138,15 @@ export class ModalFormComponent implements OnInit {
       chart: {
         height: 350,
         type: "line",
-        background: '#1a1924'
+        background: '#1a1924',
+        foreColor: "#ccc",
       },
       stroke: {
-        width: 7,
+        width: 5,
         curve: "smooth"
+      },
+      tooltip: {
+        theme: "dark",
       },
       xaxis: {
         type: "datetime",
@@ -151,6 +155,8 @@ export class ModalFormComponent implements OnInit {
       title: {
         text: this.parameter,
         align: "left",
+        
+        offsetX: 40,
         style: {
           fontSize: "16px",
           color: "#fff"
