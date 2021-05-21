@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
@@ -55,19 +55,19 @@ export class ModalFormComponent implements OnInit {
                   this.filterData();
                   this.chartform();
 
-                },1000);
-                console.log(this.userInformation_date,this.userInformation_value);
-                                
+                },2000);        
               }
 
   ngOnInit(): void {
-    
+
   };
 
   //update user data
-  async update(){
-    await this.authService.getDocumentsCollection().then((res)=>{
+  update(){
+    this.authService.getDocumentsCollection().then((res)=>{
       this.userlogs = res;
+      this.userInformation_date =[];
+      this.userInformation_value=[];
     });
   }
 
@@ -78,8 +78,6 @@ export class ModalFormComponent implements OnInit {
     }).catch((error)=>{
       console.log(error);
     });
-    this.filterData();
-    this.chartform();
   };
 
   //function for submitting the user data from modal
@@ -92,11 +90,21 @@ export class ModalFormComponent implements OnInit {
     }
     console.log(data);
     this.authService.addDocToCollection(data);
+    this.userInformation_value.push(Number(data.value));
+    this.userInformation_date.push(data.date);
+    this.updateChart();
 
   };
 
+  updateChart(){
+    this.chartOptions.series = [{
+      data: this.userInformation_value
+    }];
+  }
+
   //function for filtering data according to the current parameter
   async filterData(){
+    this.userlogs = this.userlogs.sort((i:any,j:any)=> new Date(i.date).getTime() - new Date(j.date).getTime());
     for(let i=0; i<this.userlogs.length; i++){
       if(this.userlogs[i].property == this.parameter){
         this.userInformation_value.push(Number(this.userlogs[i].value));
@@ -105,6 +113,7 @@ export class ModalFormComponent implements OnInit {
     };
   };
 
+  //function for creating charts 
   chartform(){
     this.chartOptions = {
       series: [
