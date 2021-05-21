@@ -16,6 +16,7 @@ import {
   ApexMarkers,
   ApexYAxis
 } from "ng-apexcharts";
+import { DataService } from 'src/app/services/data.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -43,13 +44,14 @@ export class ModalFormComponent implements OnInit {
   @Input()
   parameter!: string;
 
-  userInformation_value :Array<any> =[];
-  userInformation_date :Array<any> =[];
-  userlogs!: any;
+  userInformation_value :any;
+  userInformation_date :any;
+  userlogs:any ;
 
-  constructor(private modalService: NgbModal,private authService: AuthService
+  constructor(private modalService: NgbModal,private authService: AuthService, private dataService: DataService
               ){
-                this.update();
+                this.update();    
+                
                 setTimeout(()=>{
                   console.log(this.userlogs.length);
                   this.filterData();
@@ -59,13 +61,21 @@ export class ModalFormComponent implements OnInit {
               }
 
   ngOnInit(): void {
+    if(this.userlogs == undefined){
+      console.log('im here');
+      this.userInformation_date = JSON.parse(JSON.stringify(sessionStorage.getItem('date')))
+      this.userInformation_value = JSON.parse(JSON.stringify(sessionStorage.getItem('value')));
+      // console.log(this.userInformation_date,this.userInformation_value);
+
+      this.chartform();
+    }
 
   };
 
   //update user data
-  update(){
-    this.authService.getDocumentsCollection().then((res)=>{
-      this.userlogs = res;
+  async update(){
+    await this.dataService.getDocumentsCollection().then((res)=>{
+      this.userlogs = res; 
       this.userInformation_date =[];
       this.userInformation_value=[];
     });
@@ -89,7 +99,7 @@ export class ModalFormComponent implements OnInit {
       date: new Date().toString()
     }
     console.log(data);
-    this.authService.addDocToCollection(data);
+    this.dataService.addDocToCollection(data);
     this.userInformation_value.push(Number(data.value));
     this.userInformation_date.push(data.date);
     this.updateChart();
@@ -109,8 +119,11 @@ export class ModalFormComponent implements OnInit {
       if(this.userlogs[i].property == this.parameter){
         this.userInformation_value.push(Number(this.userlogs[i].value));
         this.userInformation_date.push(this.userlogs[i].date);
+        
       }
     };
+    sessionStorage.setItem('value', JSON.stringify(this.userInformation_value));
+    sessionStorage.setItem('date', JSON.stringify(this.userInformation_date));
   };
 
   //function for creating charts 
@@ -124,7 +137,8 @@ export class ModalFormComponent implements OnInit {
       ],
       chart: {
         height: 350,
-        type: "line"
+        type: "line",
+        background: '#1a1924'
       },
       stroke: {
         width: 7,
@@ -139,7 +153,7 @@ export class ModalFormComponent implements OnInit {
         align: "left",
         style: {
           fontSize: "16px",
-          color: "#666"
+          color: "#fff"
         }
       },
       fill: {
@@ -169,7 +183,11 @@ export class ModalFormComponent implements OnInit {
         title: {
           text: "Value"
         }
-      }
+      },
+      theme: {
+        mode: 'dark'
+    }
+    
     };
 
   }

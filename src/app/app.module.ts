@@ -17,6 +17,9 @@ import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalFormComponent } from './main-dashboard/modal-form/modal-form.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import {
+  HttpClientModule
+} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    HttpClientModule
 
 
   ],
