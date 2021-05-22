@@ -1,6 +1,20 @@
 <app-header></app-header>
-<p>{{name}}</p>
 <div class="container">
+    <div class="container-card">
+
+        <h1 class="title">Welcome to Self Kare !!</h1>
+        <div class="bottom-line"></div>
+        <div class="grid2">
+            <div class="hero-img">
+                <img src="../../assets/hero.png">
+            </div>
+            <div class="hero-desc">
+    
+                <h2>Hi {{name}}!!</h2>
+                <p>Welcome to Self Kare. An app designed to help you monitor your stats and get remedies during your home isolation. You can monitor your temperature, pulse rate and SpO2 levels using your interactive graphs and also download this data to show it during your next consultation with the doctor. We have also designed an ML model to predict your severity of COVID19 and then you can look up remedies accordingly. An if your condition is worsening then you can check out the bed locator feature which will allow you to loacte hospitals with different bed available all over Delhi. </p>
+            </div>
+        </div>
+    </div>
     <app-modal-form parameter="Sp02 Level"></app-modal-form>
     <app-modal-form parameter="Temperature"></app-modal-form>
     <app-modal-form parameter="Pulse Rate"></app-modal-form>

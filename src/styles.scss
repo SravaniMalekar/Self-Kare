@@ -27,3 +27,12 @@ body {
   width: 0; /* Remove scrollbar space */
   background: transparent;
 }
+
+.bottom-line {
+  height: 5px;
+  width: 9rem;
+  background: var(--accent-color);
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 10px;
+}

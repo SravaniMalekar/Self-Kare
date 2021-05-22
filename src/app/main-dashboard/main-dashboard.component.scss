@@ -1,0 +1,36 @@
+.container-card {
+  border-radius: var(--b-rad);
+  background-color: var(--fg-color);
+  padding: 25px 50px;
+  margin-bottom: 20px;
+  .title {
+    text-align: center;
+    font-weight: 500;
+    font-family: "oswald";
+    font-size: 35px;
+    margin-bottom: 30px;
+  }
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    .hero-img {
+      text-align: center;
+      img {
+        width: 400px;
+      }
+    }
+    .hero-desc {
+      h2 {
+        font-family: "oswald";
+        font-size: 28px;
+        text-align: center;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.2;
+      }
+    }
+  }
+}
