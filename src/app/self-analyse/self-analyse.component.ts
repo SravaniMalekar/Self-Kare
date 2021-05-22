@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DataService } from '../services/data.service';
 import { FetchService } from '../services/fetch.service';
 
 @Component({
@@ -14,16 +15,22 @@ export class SelfAnalyseComponent implements OnInit {
   symptoms =['Dry-Cough','Sore-Throat','Weakness','Difficulty-in-Breathing','Drowsiness','Chest-Pain','Travelled to infected countries','Diabetes','Heart-Disease','Lung Disease','Stroke','Have your symptoms progressed?','High Blood Pressure','Kidney-Disease','Change in apetite','Loss of sense of smell'];
 
   result:any;
+  name: any;
   condition: string ="Normal";
   severity: any;
   img: string = "../../assets/normal.png";
   color: any= "green solid 4px";
   
-  constructor(private modalService:NgbModal,
+  constructor(private modalService:NgbModal,private dataService: DataService,
     public activeModal: NgbActiveModal,
     private postService: FetchService) { }
 
   ngOnInit(): void {
+    this.dataService.getName();
+    
+    setTimeout(()=>{
+      this.name = this.dataService.nameee();
+    }, 1000);
   }
 
   triggerModal(content: any) {
