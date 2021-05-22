@@ -11,67 +11,90 @@
     <p class="desc">Hi {{name}}!! Analyse your covid symptoms using our Machine Learning algorithm</p>
     <button class="btn btn-default" (click)="triggerModal(modalData)">{{condition == "Normal"? "Analyse Yourself": "Re-analyse Yourself"}}</button>
   </div>
-  <div class="mild" *ngIf= "condition === 'Mild'">
-    <p>Home Remedies for Mild </p>
-  </div>
-  <div class="moderate" *ngIf= "condition === 'Moderate'">
-    <p>Home Remedies for Moderate </p>
-  </div>
-  <div class="severe" *ngIf= "condition === 'Severe'">
-    <p>Home Remedies for Severe </p>
-  </div>
   <div class="remedies">
     <div class="remedies-desc">
       <h2>Remedy Center</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque neque sapiente adipisci tenetur optio alias tempore ut magni dignissimos fuga.</p>
     </div>
     <div class="remedies-cont">
-      <div class="remedy-card">
+      <div class="remedy-card" *ngIf= "condition === 'Mild'">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">General Remedies</h2>
+          <h2 class="remedy-card__icon">Mild</h2>
         </header>
         <section class="remedy-card__body">
-            <h2 class="remedy-card__title">General Remedies</h2>
-            <span class="remedy-card__desc">Follow these</span>
+            <h2 class="remedy-card__title">Mild Remedies</h2>
             <ul class="remedy-card__list">
-                <li>this</li>
-                <li>this</li>
-                <li>this</li>
-                <li>this</li>
+                <li *ngFor = "let remedy of data.Mild">{{remedy}}</li>
             </ul>
         </section>
       </div>
-      <div class="remedy-card">
+      <div class="remedy-card" *ngIf= "condition === 'Moderate'">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">General Remedies</h2>
+          <h2 class="remedy-card__icon">Moderate</h2>
         </header>
         <section class="remedy-card__body">
-            <h2 class="remedy-card__title">General Remedies</h2>
-            <span class="remedy-card__desc">Follow these</span>
+            <h2 class="remedy-card__title">Moderate Remedies</h2>
             <ul class="remedy-card__list">
-                <li>this</li>
-                <li>this</li>
-                <li>this</li>
-                <li>this</li>
+                <li *ngFor = "let remedy of data.Moderate">{{remedy}}</li>
             </ul>
         </section>
       </div>
-      <div class="remedy-card">
+      <div class="remedy-card" *ngIf= "condition === 'Severe'">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">General Remedies</h2>
+          <h2 class="remedy-card__icon">Severe</h2>
         </header>
         <section class="remedy-card__body">
-            <h2 class="remedy-card__title">General Remedies</h2>
-            <span class="remedy-card__desc">Follow these</span>
+            <h2 class="remedy-card__title">Severe Remedies</h2>
             <ul class="remedy-card__list">
-                <li>this</li>
-                <li>this</li>
-                <li>this</li>
-                <li>this</li>
+                <li *ngFor = "let remedy of data.Severe">{{remedy}}</li>
             </ul>
         </section>
       </div>
       
+      <div class="remedy-card">
+        <header class="remedy-card__header">
+          <h2 class="remedy-card__icon">General Remedies</h2>
+        </header>
+        <section class="remedy-card__body">
+            <h2 class="remedy-card__title">General Remedies</h2>
+            <ul class="remedy-card__list">
+                <li *ngFor = "let remedy of data.Generalremedies">{{remedy}}</li>
+            </ul>
+        </section>
+      </div>
+      <div class="remedy-card">
+        <header class="remedy-card__header">
+          <h2 class="remedy-card__icon">Do's</h2>
+        </header>
+        <section class="remedy-card__body">
+            <h2 class="remedy-card__title">Do's</h2>
+            <ul class="remedy-card__list">
+                <li *ngFor = "let remedy of data.Do">{{remedy}}</li>
+            </ul>
+        </section>
+      </div>
+      <div class="remedy-card">
+        <header class="remedy-card__header">
+          <h2 class="remedy-card__icon">Dont's</h2>
+        </header>
+        <section class="remedy-card__body">
+            <h2 class="remedy-card__title">Dont's</h2>
+            <ul class="remedy-card__list">
+                <li *ngFor = "let remedy of data.Dont">{{remedy}}</li>
+            </ul>
+        </section>
+      </div>
+      <div class="remedy-card">
+        <header class="remedy-card__header">
+          <h2 class="remedy-card__icon">Caregiver suggestions</h2>
+        </header>
+        <section class="remedy-card__body">
+            <h2 class="remedy-card__title">If you're taking care of a Covid-19 patient</h2>
+            <ul class="remedy-card__list">
+                <li *ngFor = "let remedy of data.Care">{{remedy}}</li>
+            </ul>
+        </section>
+      </div>
     
     </div>
   </div>
