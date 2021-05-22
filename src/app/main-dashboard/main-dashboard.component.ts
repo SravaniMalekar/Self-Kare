@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -8,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainDashboardComponent implements OnInit {
 
-  constructor() { }
+  name: any;
+  constructor(private dataService: DataService) { 
+    
+  }
 
   ngOnInit(): void {
+    
+    this.dataService.getName();
+    
+    setTimeout(()=>{
+      this.name = this.dataService.nameee();
+    }, 1000);
+    
   }
+  
+  
 
 
 }

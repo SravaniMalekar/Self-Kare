@@ -4,6 +4,13 @@
   <form #f="ngForm" (ngSubmit)="onSubmit(f)" id="formz">
     <div class="form-groups">
 
+      <div class="form-group" *ngIf = "!isLoginMode">
+        <label for="name">Full name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name"
+        ngModel
+        name="name"
+        required>
+      </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"

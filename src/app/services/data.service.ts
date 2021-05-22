@@ -10,6 +10,7 @@ export class DataService {
 
   constructor(private authService: AuthService,public afs: AngularFirestore) {
    }
+   displayName:any;
 
      //adding doc to userlog collection
   addDocToCollection(data: Data){
@@ -34,5 +35,25 @@ export class DataService {
     console.log(userlogData);
     return userlogData;
     }
+
+  async getName(){
+    let username: any;
+    
+    username = localStorage.getItem("user")
+    const uid = JSON.parse(username).uid;
+    const docRef = this.afs.doc(`users/${uid}`);
+    
+    let snapshot = await docRef.get();
+    snapshot.subscribe(async (res)=> {
+      this.displayName = await res.data();
+      console.log(this.displayName.displayName)
+      this.displayName =  this.displayName.displayName
+    });
+
+  }
+
+  nameee(){
+    return this.displayName
+  }
     
 }

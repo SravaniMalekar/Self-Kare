@@ -48,6 +48,7 @@ export class ModalFormComponent implements OnInit {
   userInformation_date :any;
   userlogs:any ;
   isLoading : boolean= true;
+  
 
   constructor(private modalService: NgbModal,private authService: AuthService, private dataService: DataService
               ){
@@ -63,8 +64,8 @@ export class ModalFormComponent implements OnInit {
 
   ngOnInit(): void {
  
+    
     if(this.userlogs == undefined){
-      console.log('im here');
       setTimeout(()=> {
         this.update();
         setTimeout(()=>{

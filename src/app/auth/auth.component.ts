@@ -24,14 +24,16 @@ export class AuthComponent implements OnInit {
     if(!form.valid){
       return;
     }
+    const name = form.value.name;
     const email = form.value.email;
     const password = form.value.password;
+    console.log(name);
 
     if(this.isLoginMode){
       this.authService.login(email,password);
     }
     else{
-      this.authService.emailSignup(email,password);
+      this.authService.emailSignup(name,email,password);
     }
   }
 }
