@@ -3,6 +3,7 @@ import { Form, NgForm } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '../services/data.service';
 import { FetchService } from '../services/fetch.service';
+import  *  as  data  from  '../../assets/remedies.json';
 
 @Component({
   selector: 'app-self-analyse',
@@ -20,6 +21,7 @@ export class SelfAnalyseComponent implements OnInit {
   severity: any;
   img: string = "../../assets/normal.png";
   color: any= "green solid 4px";
+  data = data;
   
   constructor(private modalService:NgbModal,private dataService: DataService,
     public activeModal: NgbActiveModal,
