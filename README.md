@@ -1,27 +1,43 @@
-# SelfKare
+#### Title: Self Kare: An webapp for self care using home remedies during home isolation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+DEMO LINK: [Youtube Video Link]()
 
-## Development server
+WEBAPP LINK: [Click Here]()
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> Description: An app designed to help you monitor your stats and get remedies during your home isolation. You can monitor your temperature, pulse rate and SpO2 levels using your interactive graphs and also download this data to show it during your next consultation with the doctor. We have also designed an ML model to predict your severity of COVID19 and then you can look up remedies accordingly. An if your condition is worsening then you can check out the bed locator feature which will allow you to loacte hospitals with different bed available all over Delhi.
 
-## Code scaffolding
+#### The app contains the following features:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`Dashboard`: This section focuses on recording your stats like temperature, pulse rate and SpO2 levels and helps us to visualize it in the form od graphs. The user can also download this data to share it with his doctor show them the progression/regression of the stats over time.
 
-## Build
+`Remedy Center`: This section contains our ML model. The symptoms' data is collected using a form and sent to analyse. The analyzed severity of covid19 is then returned and used to display the home remedies accordingly.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`Bed Locator`: This section helps to locate different hospitals all over Delhi using a map. All the hospitals are marked according to the bed vacancy and their full details like address, contact numbers, oxygen left etc.
 
-## Running unit tests
+#### Hardware and Software Requirements:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+A device with modern browser.
 
-## Running end-to-end tests
+#### Tech Stack:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
+- Angular12
+- Angular Modules
+  1. Bootstrap4 & ng-Bootstrap (for styling)
+  2. ApexChart (for plotting graphs)
+  3. Firebase 2 (for backend and deployment of frontend)
+- HTML5
+- CDNs
+  1. Font Awesome 5 (for icons)
+- SCSS
+- Typescript
+- Javascript
+- Javascript Modules
+  1. Leaflet (for Maps)
+- Python3
+- Python3 Libraries
+  1. Pandas
+- Heroku (for deployment of ML model)
 
-## Further help
+#### Process Flow
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### Data Flow Diagram
