@@ -20,6 +20,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import {
   HttpClientModule
 } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {
     HeaderComponent,
     AuthComponent,
     ModalFormComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,

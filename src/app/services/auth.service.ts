@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Data, User} from "../services/user"
+import {User} from "../services/user"
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -17,8 +17,6 @@ export class AuthService {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
-        localStorage.setItem('uid', JSON.stringify(user.uid));
-
       } else {
         localStorage.setItem('user', '');
       }

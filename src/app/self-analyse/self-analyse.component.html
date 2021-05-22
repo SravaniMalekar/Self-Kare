@@ -4,12 +4,21 @@
     <div class="status">
       <span class="status-img">
 
-        <img src="../../assets/normal.png">
+        <img src={{img}} [ngStyle] = "{'border': color}" >
       </span>
-      <p class="status-text">Normal</p>
+      <p class="status-text">{{condition}}</p>
     </div>
     <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci obcaecati sequi dolor dolorem, quae cum? Nesciunt repudiandae ipsum delectus incidunt ad at, eos doloribus? Officia dolor praesentium provident quae?</p>
     <button class="btn btn-default" (click)="triggerModal(modalData)">Analyse Yourself</button>
+  </div>
+  <div class="mild" *ngIf= "condition === 'Mild'">
+    <p>Home Remedies for Mild </p>
+  </div>
+  <div class="moderate" *ngIf= "condition === 'Moderate'">
+    <p>Home Remedies for Moderate </p>
+  </div>
+  <div class="severe" *ngIf= "condition === 'Severe'">
+    <p>Home Remedies for Severe </p>
   </div>
   <div class="remedies">
     <div class="remedies-desc">

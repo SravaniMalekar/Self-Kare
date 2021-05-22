@@ -14,7 +14,11 @@ export class SelfAnalyseComponent implements OnInit {
   symptoms =['Dry-Cough','Sore-Throat','Weakness','Difficulty-in-Breathing','Drowsiness','Chest-Pain','Travelled to infected countries','Diabetes','Heart-Disease','Lung Disease','Stroke','Have your symptoms progressed?','High Blood Pressure','Kidney-Disease','Change in apetite','Loss of sense of smell'];
 
   result:any;
-
+  condition: string ="Normal";
+  severity: any;
+  img: string = "../../assets/normal.png";
+  color: any= "green solid 4px";
+  
   constructor(private modalService:NgbModal,
     public activeModal: NgbActiveModal,
     private postService: FetchService) { }
@@ -51,7 +55,31 @@ export class SelfAnalyseComponent implements OnInit {
 
     this.res = [this.res];
     console.log(this.res);
-    this.postService.fetchPosts(this.res);
+    this.getResult();
   }
+
+  // function to get response from ML model
+  async getResult(){
+    await this.postService.fetchPosts(this.res);
+    setTimeout(()=>{
+      this.severity = this.postService.getPosts();
+      console.log(this.severity)
+      if(this.severity == "Moderate severity"){
+        this.condition = "Moderate";
+        this.img = "../../assets/mild.png";
+        this.color= "orange solid 4px";
+      }else if(this.severity == "Mild severity"){
+        this.condition = "Mild";
+        this.img = "../../assets/mild2.png";
+        this.color= "yellow solid 4px";
+      }else if(this.severity == "Severe severity"){
+        this.condition = "Severe";
+        this.img = "../../assets/severe.png";
+        this.color= "red solid 4px";
+      }
+    },2000)
+    
+  }
+  
 }
 

@@ -25,14 +25,13 @@ export class DataService {
 
   //get user data from firestore collection
   async getDocumentsCollection(){
-    const uid = JSON.parse(JSON.stringify(localStorage.getItem('uid'))); 
-    console.log(uid);
     let userlogData: Array<any> = [];
     const docRef = this.afs.collection(`users/${this.authService.userData.uid}/Userlogs`);
     let snapshot = await docRef.get();
     snapshot.forEach(doc => {
       doc.forEach(data=> userlogData.push(data.data()));
     });
+    console.log(userlogData);
     return userlogData;
     }
     

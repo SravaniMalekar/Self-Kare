@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { pipe } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class FetchService {
 
   constructor(private http: HttpClient) { }
+  data: any;
 
   fetchPosts(content: Array<any>){
     const postData : Array<any> = content;
@@ -16,6 +18,12 @@ export class FetchService {
       responseType: 'text'
     }).subscribe(responseData =>{
       console.log(responseData);
+      this.data = responseData;
     })
+    return this.data;
+  }
+
+  getPosts(){
+    return this.data;
   }
 }

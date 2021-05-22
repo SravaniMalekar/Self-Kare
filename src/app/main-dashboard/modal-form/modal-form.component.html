@@ -1,4 +1,6 @@
-<div class="graph">
+<div class="loader" *ngIf= "isLoading && parameter == 'Temperature'"><app-loading-spinner></app-loading-spinner></div>
+
+<div class="graph" *ngIf ="!isLoading">
 
     <ng-template #modalForm let-modal>
         <div class="modal-header">

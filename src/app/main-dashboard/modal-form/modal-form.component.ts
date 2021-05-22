@@ -47,6 +47,7 @@ export class ModalFormComponent implements OnInit {
   userInformation_value :any;
   userInformation_date :any;
   userlogs:any ;
+  isLoading : boolean= true;
 
   constructor(private modalService: NgbModal,private authService: AuthService, private dataService: DataService
               ){
@@ -57,17 +58,21 @@ export class ModalFormComponent implements OnInit {
                   this.filterData();
                   this.chartform();
 
-                },2000);        
+                },2000);      
               }
 
   ngOnInit(): void {
+ 
     if(this.userlogs == undefined){
       console.log('im here');
-      this.userInformation_date = JSON.parse(JSON.stringify(sessionStorage.getItem('date')))
-      this.userInformation_value = JSON.parse(JSON.stringify(sessionStorage.getItem('value')));
-      // console.log(this.userInformation_date,this.userInformation_value);
+      setTimeout(()=> {
+        this.update();
+        setTimeout(()=>{
+          console.log(this.userlogs.length);
+          this.filterData();
+          this.chartform();
 
-      this.chartform();
+        },2000);}, 2000);
     }
 
   };
@@ -122,12 +127,13 @@ export class ModalFormComponent implements OnInit {
         
       }
     };
-    sessionStorage.setItem('value', JSON.stringify(this.userInformation_value));
-    sessionStorage.setItem('date', JSON.stringify(this.userInformation_date));
   };
 
   //function for creating charts 
   chartform(){
+    if(this.userInformation_value){
+      this.isLoading =false;
+    }
     this.chartOptions = {
       series: [
         {
