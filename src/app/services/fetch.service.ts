@@ -7,7 +7,8 @@ import { pipe } from 'rxjs';
 })
 export class FetchService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
   data: any;
 
   fetchPosts(content: Array<any>){
@@ -19,6 +20,7 @@ export class FetchService {
     }).subscribe(responseData =>{
       console.log(responseData);
       this.data = responseData;
+      localStorage.setItem("severity",JSON.stringify(responseData));
     })
     return this.data;
   }

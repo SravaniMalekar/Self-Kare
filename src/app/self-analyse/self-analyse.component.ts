@@ -16,7 +16,7 @@ export class SelfAnalyseComponent implements OnInit {
 
   result:any;
   name: any;
-  condition: string ="Normal";
+  condition: any ="Normal";
   severity: any;
   img: string = "../../assets/normal.png";
   color: any= "green solid 4px";
@@ -26,11 +26,18 @@ export class SelfAnalyseComponent implements OnInit {
     private postService: FetchService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("severity") != ""){
+      this.severity = localStorage.getItem("severity")
+      this.severity = JSON.parse(this.severity);
+      this.updateData();
+      
+    }
     this.dataService.getName();
     
     setTimeout(()=>{
       this.name = this.dataService.nameee();
     }, 1000);
+
   }
 
   triggerModal(content: any) {
@@ -71,21 +78,25 @@ export class SelfAnalyseComponent implements OnInit {
     setTimeout(()=>{
       this.severity = this.postService.getPosts();
       console.log(this.severity)
-      if(this.severity == "Moderate severity"){
-        this.condition = "Moderate";
-        this.img = "../../assets/mild.png";
-        this.color= "orange solid 4px";
-      }else if(this.severity == "Mild severity"){
-        this.condition = "Mild";
-        this.img = "../../assets/mild2.png";
-        this.color= "yellow solid 4px";
-      }else if(this.severity == "Severe severity"){
-        this.condition = "Severe";
-        this.img = "../../assets/severe.png";
-        this.color= "red solid 4px";
-      }
+      this.updateData();
     },2000)
     
+  }
+
+  updateData(){
+    if(this.severity == "Moderate severity"){
+      this.condition = "Moderate";
+      this.img = "../../assets/mild.png";
+      this.color= "orange solid 4px";
+    }else if(this.severity == "Mild severity"){
+      this.condition = "Mild";
+      this.img = "../../assets/mild2.png";
+      this.color= "yellow solid 4px";
+    }else if(this.severity == "Severe severity"){
+      this.condition = "Severe";
+      this.img = "../../assets/severe.png";
+      this.color= "red solid 4px";
+    }
   }
   
 }

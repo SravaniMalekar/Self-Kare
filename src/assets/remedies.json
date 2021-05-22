@@ -1,0 +1,45 @@
+{
+    "General remedies": [
+        "Rest and drink plenty of fluids", 
+        "Gargle several times a day with warm salt water",
+        "Drink warm liquids such as tea, or lemon tea with honey",
+        "Use a vaporizer or take a steamy shower",
+        "Saline spray can also help reduce nasal congestion",
+        "Drink 8 to 10 glasses of clear liquids, such as water, diluted fruit juices",
+        "Avoid dairy products, fried foods, caffeine, alcohol, and carbonated drinks"
+
+    ],
+    "General remedies2": [
+        "Eat smaller meals more often throughout the day",
+        "Deep breathing exercises may increase the amount of oxygen in your lungs and help open up airways",
+        "Simple stretching exercises keep your body from getting stiff",
+        "Try walking around your home for short periods every day",
+        "For shortness of breath,Try relaxation or meditation techniques"
+    ],
+    "Mild": [
+        "Take steam atleast 4 times a day",
+        "Self-Isolation a room with has attachted bathroom",
+        "Use triple layer mask if sharing same space with other people",
+        "Keep a window always open for ventilation",
+        "Keep monitoring your temperature  and 02 level throughtout day",
+        "Do breathing exercises 3 times a day",
+        "Your body needs energy to fight the virus. Just rest up and let your body do its job",
+        "Take medication only prescribed by your doctor, don't take self medication",
+        "Include immunity boosters in your diet like coconut water,turmeric and ginger",
+        "Don't share personal items, like dishes, towels or bedding. Make sure your clothing and linens are washed thoroughly"
+    ],
+    "Care":[
+        "Keep your hands clean and away from your face",
+        "If you need to be in the same room with the person who is ill, wear a mask",
+        "Clean your home frequently",
+        "Be careful with laundry",
+        "Be careful with dishes",
+        "Avoid direct contact with the sick person's bodily fluids",
+        "Avoid having unnecessary visitors in your home"
+    ],
+    "Severe": [
+        "Immediately contact a doctor and get a diagnosis",
+        "If you need proper medical attention, find your nearest hospital using out <a routerLinkActive='active' [routerLink] = '['/tweets']'> Bed Locator </a> section"
+    ]
+    
+}
