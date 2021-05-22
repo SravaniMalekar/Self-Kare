@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121017;
+  font-family: "Oswald", sans-serif;
+  overflow: hidden;
+}
+#mapid {
+  height: 80vh;
+}
+.leaflet-bar a {
+  background-color: #1a1924;
+
+  color: #fff;
+}
+#selected {
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.badge {
+  background-color: rgb(37, 170, 37);
+  border-radius: 10px;
+  color: #fff;
+  padding: 4px;
+  font-size: 11px;
+}
+
+.leaflet-popup-content {
+  width: auto;
+}
+.leaflet-popup-tip {
+  background-color: #1a1924;
+}
+.leaflet-popup-content-wrapper {
+  width: auto;
+  font-size: 14px;
+  background-color: #1a1924;
+  color: #fff;
+}
+
+#grid {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container {
+  padding: 25px 50px 0px 50px;
+}
+button {
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+  margin: 8px;
+  text-transform: uppercase;
+  background-color: #00ffff;
+  border-radius: 7px;
+  color: black;
+  border: #00ffff 2px solid;
+  transition: all 200ms ease-in;
+  background-color: transparent;
+  color: #00ffff;
+}
+button:hover {
+  background-color: #00ffff;
+
+  color: #121017;
+}
