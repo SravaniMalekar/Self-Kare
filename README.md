@@ -43,6 +43,8 @@ A device with modern browser.
   6. joblib
 - Heroku (for deployment of ML model)
 
-#### Process Flow
+#### Data and Process Flow
 
-#### Data Flow Diagram
+![](./imgs/fe.png)
+
+![](./img/ml.png)
