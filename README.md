@@ -47,4 +47,4 @@ A device with modern browser.
 
 ![](./imgs/fe.png)
 
-![](./img/ml.png)
+![](./imgs/ml.png)
