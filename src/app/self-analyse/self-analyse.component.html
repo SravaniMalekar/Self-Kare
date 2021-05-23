@@ -10,7 +10,7 @@
     </div>
     <div>
 
-      <p class="desc">Hi {{name}}!! Analyse your covid symptoms using our Machine Learning algorithm
+      <p class="desc">Hi {{name}}!! Analyse your covid symptoms using our Machine Learning algorithm. It might take a few seconds meanwhile you can explore and come back later!!
       </p>
       <small style="margin-left: 50px;">Note: The results may not be 100% accurate.</small>
     </div>
@@ -22,87 +22,150 @@
       <h2>Remedy Center</h2>
       <p>This is the remedy center. Here you can find home remedies according to your severity.</p>
     </div>
-    <div class="remedies-cont">
-      <div class="remedy-card" *ngIf= "condition === 'Mild'">
-        <header class="remedy-card__header">
-          <h2 class="remedy-card__icon mild">Mild</h2>
-        </header>
-        <section class="remedy-card__body">
-            <h2 class="remedy-card__title">Mild Remedies</h2>
-            <ul class="remedy-card__list">
-                <li *ngFor = "let remedy of data.Mild">{{remedy}}</li>
-            </ul>
-        </section>
+    <div class="Suggestions" *ngIf= "condition != 'Normal'">
+      <h2 style="font-family: Oswald;">Suggestions for you</h2>
+      <div class="remedies-cont">
+        <div class="remedy-card" *ngIf= "condition === 'Mild'">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon mild">Mild</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Mild Remedies</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Mild">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card" *ngIf= "condition === 'Moderate'">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon mod">Moderate</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Moderate Remedies</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Moderate">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card" *ngIf= "condition === 'Severe'">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon sev">Severe</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Severe Remedies</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Severe">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card" >
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon gen">Nutrition</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Nutritional suggestions</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Nutrition">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
       </div>
-      <div class="remedy-card" *ngIf= "condition === 'Moderate'">
-        <header class="remedy-card__header">
-          <h2 class="remedy-card__icon mod">Moderate</h2>
-        </header>
-        <section class="remedy-card__body">
-            <h2 class="remedy-card__title">Moderate Remedies</h2>
-            <ul class="remedy-card__list">
-                <li *ngFor = "let remedy of data.Moderate">{{remedy}}</li>
-            </ul>
-        </section>
-      </div>
-      <div class="remedy-card" *ngIf= "condition === 'Severe'">
-        <header class="remedy-card__header">
-          <h2 class="remedy-card__icon sev">Severe</h2>
-        </header>
-        <section class="remedy-card__body">
-            <h2 class="remedy-card__title">Severe Remedies</h2>
-            <ul class="remedy-card__list">
-                <li *ngFor = "let remedy of data.Severe">{{remedy}}</li>
-            </ul>
-        </section>
-      </div>
-      
-      <div class="remedy-card">
-        <header class="remedy-card__header">
-          <h2 class="remedy-card__icon  gen">General Remedies</h2>
-        </header>
-        <section class="remedy-card__body">
-            <h2 class="remedy-card__title">General Remedies</h2>
-            <ul class="remedy-card__list">
-                <li *ngFor = "let remedy of data.Generalremedies">{{remedy}}</li>
-            </ul>
-        </section>
-      </div>
-      <div class="remedy-card">
-        <header class="remedy-card__header">
-          <h2 class="remedy-card__icon gen">Do's</h2>
-        </header>
-        <section class="remedy-card__body">
-            <h2 class="remedy-card__title">Do's</h2>
-            <ul class="remedy-card__list">
-                <li *ngFor = "let remedy of data.Do">{{remedy}}</li>
-            </ul>
-        </section>
-      </div>
-      <div class="remedy-card">
-        <header class="remedy-card__header">
-          <h2 class="remedy-card__icon gen">Dont's</h2>
-        </header>
-        <section class="remedy-card__body">
-            <h2 class="remedy-card__title">Dont's</h2>
-            <ul class="remedy-card__list">
-                <li *ngFor = "let remedy of data.Dont">{{remedy}}</li>
-            </ul>
-        </section>
-      </div>
-      <div class="remedy-card">
-        <header class="remedy-card__header">
-          <h2 class="remedy-card__icon gen">Caregiver suggestions</h2>
-        </header>
-        <section class="remedy-card__body">
-            <h2 class="remedy-card__title">If you're taking care of a Covid-19 patient</h2>
-            <ul class="remedy-card__list">
-                <li *ngFor = "let remedy of data.Care">{{remedy}}</li>
-            </ul>
-        </section>
-      </div>
-    
     </div>
+    <div class="all">
+      <h2 style="font-family: Oswald;" *ngIf ="condition != 'Normal'">Other Remedies</h2>
+      <div class="remedies-cont">
+        <div class="remedy-card">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon  gen">General Remedies</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">General Remedies</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Generalremedies">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon gen">Do's</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Do's</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Do">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon gen">Dont's</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Dont's</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Dont">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon gen">Caregiver suggestions</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">If you're taking care of a Covid-19 patient</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Care">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card" *ngIf= "condition != 'Mild'">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon mild">Mild</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Mild Remedies</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Mild">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card" *ngIf= "condition != 'Moderate'">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon mod">Moderate</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Moderate Remedies</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Moderate">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card" *ngIf= "condition != 'Severe'">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon sev">Severe</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Severe Remedies</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Severe">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+        <div class="remedy-card" *ngIf= "condition == 'Normal'">
+          <header class="remedy-card__header">
+            <h2 class="remedy-card__icon gen">Nutrition</h2>
+          </header>
+          <section class="remedy-card__body">
+              <h2 class="remedy-card__title">Nutritional suggestions</h2>
+              <ul class="remedy-card__list">
+                  <li *ngFor = "let remedy of data.Nutrition">{{remedy}}</li>
+              </ul>
+          </section>
+        </div>
+      
+      </div>
+    </div>
+
   </div>
   </div>
 

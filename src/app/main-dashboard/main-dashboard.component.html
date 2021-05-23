@@ -15,8 +15,12 @@
             </div>
         </div>
     </div>
-    <app-modal-form parameter="Sp02 Level"></app-modal-form>
-    <app-modal-form parameter="Temperature"></app-modal-form>
-    <app-modal-form parameter="Pulse Rate"></app-modal-form>
+    <div class="container-card">
+        <h2 style="line-height: 1.3;" class="title">Monitor your health statistics</h2>
+        <p style="font-size: 18px; text-align: center;">Log your health statistics here and you can keep updating them to maintain your health statistics.</p>
+    </div>
+    <app-modal-form parameter="Sp02 Level" max="105" min="60"></app-modal-form>
+    <app-modal-form parameter="Temperature" max="110" min="90"></app-modal-form>
+    <app-modal-form parameter="Pulse Rate" max="120" min="60"></app-modal-form>
 
 </div>

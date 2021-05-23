@@ -81,7 +81,7 @@ export class SelfAnalyseComponent implements OnInit {
       this.severity = this.postService.getPosts();
       console.log(this.severity)
       this.updateData();
-    },2000)
+    },4000)
     
   }
 

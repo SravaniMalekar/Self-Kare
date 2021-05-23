@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'auth', component: AuthComponent},
   {path: 'main-dashboard', component: MainDashboardComponent, canActivate: [AuthGuard]},
   {path: 'self-analyse', component: SelfAnalyseComponent, canActivate: [AuthGuard]},
-  {path: 'tweets', component:TweetsComponent, canActivate: [AuthGuard]}
+  {path: 'bed-locator', component:TweetsComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

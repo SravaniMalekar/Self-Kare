@@ -48,6 +48,8 @@ export class ModalFormComponent implements OnInit {
   userInformation_date :any;
   userlogs:any ;
   isLoading : boolean= true;
+  @Input() min:any;
+  @Input() max:any;
   
 
   constructor(private modalService: NgbModal,private authService: AuthService, private dataService: DataService
@@ -156,6 +158,9 @@ export class ModalFormComponent implements OnInit {
         theme: "dark",
       },
       xaxis: {
+        labels:{
+          datetimeUTC: false
+        },
         type: "datetime",
         categories: this.userInformation_date
       },
@@ -191,8 +196,8 @@ export class ModalFormComponent implements OnInit {
         }
       },
       yaxis: {
-        min: 50,
-        max: 110,
+        min: Number(this.min),
+        max: Number(this.max),
         title: {
           text: "Value"
         }
