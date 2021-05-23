@@ -34,3 +34,30 @@
     }
   }
 }
+
+@media (max-width: 769px) {
+  .container-card {
+    .grid2 {
+      grid-template-columns: 1fr;
+      justify-content: center;
+      align-items: center;
+      .hero-img {
+        text-align: center;
+        img {
+          width: 300px;
+        }
+      }
+      .hero-desc {
+        h2 {
+          font-family: "oswald";
+          font-size: 24px;
+          text-align: center;
+        }
+        p {
+          font-size: 16px;
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+}

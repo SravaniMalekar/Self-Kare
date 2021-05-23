@@ -284,3 +284,44 @@
     }
   }
 }
+
+@media (max-width: 769px) {
+  .tab {
+    width: 100%;
+    height: auto;
+
+    grid-template-columns: 1fr;
+
+    .desc {
+      font-size: 16px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+
+  .modal-header {
+    margin-top: 102px;
+  }
+
+  .remedies {
+    padding: 10px;
+    margin: 35px 0;
+    .remedies-desc {
+      h2 {
+        font-size: 28px;
+        font-family: "Oswald";
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+  .remedies-cont {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1.5rem;
+    justify-items: center;
+  }
+}

@@ -7,6 +7,8 @@
 .navbar {
   background: var(--fg-color);
   border-radius: 0;
+  border-bottom: 0;
+  margin-bottom: 30px;
 
   .nav li > a {
     height: 8.8vh;
@@ -32,7 +34,7 @@
   }
   .link {
     width: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "oswald", sans-serif;
     transition: 0.2s ease-in-out;
     visibility: hidden;
     font-size: 0px;
@@ -59,31 +61,36 @@
 // Small Devices
 @media (max-width: 769px) {
   #logo {
-    margin-top: -8px;
+    margin-left: -20px;
+    margin-top: -5px;
   }
   .navbar {
+    height: 66px;
+
     .navbar-header {
       padding: 5px;
     }
     .link {
-      padding-left: 10px;
-      visibility: visible;
-      width: 100%;
-      font-size: 14px;
-      margin-left: 15px;
+      display: none;
     }
-    .navbar-brand {
-      .link {
-        visibility: hidden;
-      }
+  }
+  .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    .navbar-list ul {
+      display: flex;
     }
   }
   .nav li > a {
-    height: 60px;
+    // height: 70px;
     &:hover,
     &.active {
+      margin: 6px 3px 0 3px;
       background: var(--bg-color);
-      font-size: 17px;
+      font-size: 18px;
+      padding-top: 15px;
+      padding-bottom: 30px;
+      border-radius: 20px 20px 0 0;
     }
   }
 }
