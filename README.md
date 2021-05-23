@@ -4,7 +4,7 @@ DEMO LINK: [Youtube Video Link]()
 
 WEBAPP LINK: [Click Here]()
 
-> Description: An app designed to help you monitor your stats and get remedies during your home isolation. You can monitor your temperature, pulse rate and SpO2 levels using your interactive graphs and also download this data to show it during your next consultation with the doctor. We have also designed an ML model to predict your severity of COVID19 and then you can look up remedies accordingly. An if your condition is worsening then you can check out the bed locator feature which will allow you to loacte hospitals with different bed available all over Delhi.
+> Description: An app designed to help you monitor your stats and get remedies during your home isolation. You can monitor your temperature, pulse rate and SpO2 levels using your interactive graphs and also download this data to show it during your next consultation with the doctor. We have also designed an ML model to predict your severity of COVID19 and then you can look up remedies accordingly. If your condition is worsening then you can check out the bed locator feature which will allow you to locate hospitals with different bed available all over Delhi.
 
 #### The app contains the following features:
 
@@ -36,6 +36,11 @@ A device with modern browser.
 - Python3
 - Python3 Libraries
   1. Pandas
+  2. flask
+  3. Sklearn
+  4. gunicorn
+  5. flask_cors
+  6. joblib
 - Heroku (for deployment of ML model)
 
 #### Process Flow
