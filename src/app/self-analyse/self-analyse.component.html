@@ -8,18 +8,24 @@
       </span>
       <p class="status-text">{{condition}}</p>
     </div>
-    <p class="desc">Hi {{name}}!! Analyse your covid symptoms using our Machine Learning algorithm</p>
+    <div>
+
+      <p class="desc">Hi {{name}}!! Analyse your covid symptoms using our Machine Learning algorithm
+      </p>
+      <small style="margin-left: 50px;">Note: The results may not be 100% accurate.</small>
+    </div>
+    
     <button class="btn btn-default" (click)="triggerModal(modalData)">{{condition == "Normal"? "Analyse Yourself": "Re-analyse Yourself"}}</button>
   </div>
   <div class="remedies">
     <div class="remedies-desc">
       <h2>Remedy Center</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque neque sapiente adipisci tenetur optio alias tempore ut magni dignissimos fuga.</p>
+      <p>This is the remedy center. Here you can find home remedies according to your severity.</p>
     </div>
     <div class="remedies-cont">
       <div class="remedy-card" *ngIf= "condition === 'Mild'">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">Mild</h2>
+          <h2 class="remedy-card__icon mild">Mild</h2>
         </header>
         <section class="remedy-card__body">
             <h2 class="remedy-card__title">Mild Remedies</h2>
@@ -30,7 +36,7 @@
       </div>
       <div class="remedy-card" *ngIf= "condition === 'Moderate'">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">Moderate</h2>
+          <h2 class="remedy-card__icon mod">Moderate</h2>
         </header>
         <section class="remedy-card__body">
             <h2 class="remedy-card__title">Moderate Remedies</h2>
@@ -41,7 +47,7 @@
       </div>
       <div class="remedy-card" *ngIf= "condition === 'Severe'">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">Severe</h2>
+          <h2 class="remedy-card__icon sev">Severe</h2>
         </header>
         <section class="remedy-card__body">
             <h2 class="remedy-card__title">Severe Remedies</h2>
@@ -53,7 +59,7 @@
       
       <div class="remedy-card">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">General Remedies</h2>
+          <h2 class="remedy-card__icon  gen">General Remedies</h2>
         </header>
         <section class="remedy-card__body">
             <h2 class="remedy-card__title">General Remedies</h2>
@@ -64,7 +70,7 @@
       </div>
       <div class="remedy-card">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">Do's</h2>
+          <h2 class="remedy-card__icon gen">Do's</h2>
         </header>
         <section class="remedy-card__body">
             <h2 class="remedy-card__title">Do's</h2>
@@ -75,7 +81,7 @@
       </div>
       <div class="remedy-card">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">Dont's</h2>
+          <h2 class="remedy-card__icon gen">Dont's</h2>
         </header>
         <section class="remedy-card__body">
             <h2 class="remedy-card__title">Dont's</h2>
@@ -86,7 +92,7 @@
       </div>
       <div class="remedy-card">
         <header class="remedy-card__header">
-          <h2 class="remedy-card__icon">Caregiver suggestions</h2>
+          <h2 class="remedy-card__icon gen">Caregiver suggestions</h2>
         </header>
         <section class="remedy-card__body">
             <h2 class="remedy-card__title">If you're taking care of a Covid-19 patient</h2>
