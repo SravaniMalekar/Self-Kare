@@ -8,7 +8,12 @@ CORS(app)
 
 @app.route('/', methods=['POST'])
 def func():
-    #data = request.get_json()
+    '''
+    Creating the flask application
+    Opens the saved model.
+    Collects the input data through http POST request
+    Sends the input to the saved model for prediction and return the response.
+    '''
     filePath = './finalmodel.pkl'
     file = open(filePath, "rb")
     model = joblib.load(file)
