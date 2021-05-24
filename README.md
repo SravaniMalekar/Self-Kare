@@ -1,7 +1,5 @@
 #### Title: Self Kare: An webapp for self care using home remedies during home isolation
 
-DEMO LINK: [Youtube Video Link]()
-
 WEBAPP LINK: [Click Here](https://self-kare.web.app/)
 
 > Description: An app designed to help you monitor your stats and get remedies during your home isolation. You can monitor your temperature, pulse rate and SpO2 levels using your interactive graphs and also download this data to show it during your next consultation with the doctor. We have also designed an ML model to predict your severity of COVID19 and then you can look up remedies accordingly. If your condition is worsening then you can check out the bed locator feature which will allow you to locate hospitals with different bed available all over Delhi.
