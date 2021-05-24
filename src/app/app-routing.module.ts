@@ -6,6 +6,7 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
 import { SelfAnalyseComponent } from './self-analyse/self-analyse.component';
 import { TweetsComponent } from './tweets/tweets.component';
 
+//configuring routes 
 const routes: Routes = [
   {path: '', redirectTo: '/auth', pathMatch: "full"},
   {path:'auth', component: AuthComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'bed-locator', component:TweetsComponent, canActivate: [AuthGuard]}
 ];
 
+//registering routes 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -16,10 +16,12 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //function to switch from login mode to signup 
   onSwitchMode(){
     this.isLoginMode = !this.isLoginMode;
   }
-
+  
+  //function which executes after submission of Login/Signup form
   onSubmit(form: NgForm){
     if(!form.valid){
       return;
@@ -29,6 +31,7 @@ export class AuthComponent implements OnInit {
     const password = form.value.password;
     console.log(name);
 
+    //calling login/signup methods from authservice
     if(this.isLoginMode){
       this.authService.login(email,password);
     }

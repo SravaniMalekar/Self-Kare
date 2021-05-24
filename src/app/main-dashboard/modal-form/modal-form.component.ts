@@ -54,6 +54,7 @@ export class ModalFormComponent implements OnInit {
 
   constructor(private modalService: NgbModal,private authService: AuthService, private dataService: DataService
               ){
+                //updating user information and creating charts
                 this.update();    
                 
                 setTimeout(()=>{
@@ -66,7 +67,7 @@ export class ModalFormComponent implements OnInit {
 
   ngOnInit(): void {
  
-    
+    //updating user information and creating charts
     if(this.userlogs == undefined){
       setTimeout(()=> {
         this.update();
@@ -80,7 +81,7 @@ export class ModalFormComponent implements OnInit {
 
   };
 
-  //update user data
+  //function for updating user data
   async update(){
     await this.dataService.getDocumentsCollection().then((res)=>{
       this.userlogs = res; 
@@ -113,7 +114,8 @@ export class ModalFormComponent implements OnInit {
     this.updateChart();
 
   };
-
+  
+  //function for updating charts on submitting new data
   updateChart(){
     this.chartOptions.series = [{
       data: this.userInformation_value

@@ -15,7 +15,7 @@ export class MainDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    //fetching username details from firestore
     this.dataService.getName();
     
     setTimeout(()=>{

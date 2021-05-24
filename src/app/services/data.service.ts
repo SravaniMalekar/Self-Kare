@@ -12,7 +12,7 @@ export class DataService {
    }
    displayName:any;
 
-     //adding doc to userlog collection
+  //adding doc to userlog collection
   addDocToCollection(data: Data){
     const id = this.afs.createId();
     const dataDoc = this.afs.doc(`users/${this.authService.userData.uid}`);
@@ -36,6 +36,7 @@ export class DataService {
     return userlogData;
     }
 
+  //get username form firebase firestore storage and storing as displayName
   async getName(){
     let username: any;
     
@@ -52,6 +53,7 @@ export class DataService {
 
   }
 
+  // function for returning username
   nameee(){
     return this.displayName
   }

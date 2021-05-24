@@ -11,6 +11,7 @@ export class FetchService {
   }
   data: any;
 
+  //function to send a POST Request to ML Model deployed as REST API and get severity response
   fetchPosts(content: Array<any>){
     const postData : Array<any> = content;
     this.http.post('https://covid-severity-webapp.herokuapp.com/',postData,{
@@ -25,6 +26,7 @@ export class FetchService {
     return this.data;
   }
 
+  //function to retutn the severity response
   getPosts(){
     return this.data;
   }

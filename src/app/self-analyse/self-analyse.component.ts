@@ -13,6 +13,7 @@ import  *  as  data  from  '../../assets/remedies.json';
 export class SelfAnalyseComponent implements OnInit {
 
   res: any =[];
+  //list of symptoms our model is using to predict the severity
   symptoms =['Dry-Cough','Sore-Throat','Weakness','Difficulty-in-Breathing','Drowsiness','Chest-Pain','Travelled to infected countries','Diabetes','Heart-Disease','Lung Disease','Stroke','Have your symptoms progressed?','High Blood Pressure','Kidney-Disease','Change in apetite','Loss of sense of smell'];
 
   result:any;
@@ -42,6 +43,7 @@ export class SelfAnalyseComponent implements OnInit {
 
   }
 
+  //function responsible for trigering of the modal
   triggerModal(content: any) {
     this.modalService.open(content, {size: "lg", centered:true}).result.then((result)=>{
       console.log(result);
@@ -50,6 +52,7 @@ export class SelfAnalyseComponent implements OnInit {
     });
   }
   
+  //function which executes after form submission and stores user inputs
   submitForm(form: NgForm){
     this.modalService.dismissAll();
     console.log(form.value);
@@ -58,7 +61,7 @@ export class SelfAnalyseComponent implements OnInit {
     
   }
 
-
+  //function to filter user input and covert it into array consisting of 1,0 which are sent to our model
   resolve(){
     this.res =[];
     for(let i=0; i< this.symptoms.length ; i++){
@@ -84,7 +87,8 @@ export class SelfAnalyseComponent implements OnInit {
     },4000)
     
   }
-
+  
+  //function to update the severity according to the response from ML model
   updateData(){
     if(this.severity == "Moderate severity"){
       this.condition = "Moderate";

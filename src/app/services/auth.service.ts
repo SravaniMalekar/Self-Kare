@@ -40,7 +40,6 @@ export class AuthService {
 
     return this.afAuth.signInWithEmailAndPassword(email,password)
     .then((result)=>{
-      // this.SetUserData(result.user);
       console.log('Logged In');
       setTimeout(()=>this.router.navigateByUrl('/main-dashboard'),20);
       
@@ -48,16 +47,6 @@ export class AuthService {
       window.alert(error.message)
     })
   }
-
-  // loginGoogle(){
-  //   return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((result)=>{
-  //     console.log('google login');
-  //     this.router.navigateByUrl('/main-dashboard');
-  //     this.SetUserData(result.user);
-  //   }).catch((error)=>{
-  //     window.alert(error);
-  //   })
-  // }
 
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
